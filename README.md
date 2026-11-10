@@ -5,7 +5,8 @@
 Анализирует результаты тестирования по темам учебной программы, выявляет сложные темы, сравнивает эффективность учебников и формирует обоснованные рекомендации по распределению учебных часов.
 
 **Живое демо (MVP):** https://reimon173.github.io/oqulyq-lens/
-**Презентация:** https://reimon173.github.io/oqulyq-lens/presentation/oqulyq-lens-pitch.html
+**Презентация:** https://reimon173.github.io/oqulyq-lens/presentation/oqulyq-lens-pitch.html ([PDF](presentation/Rubick-team-Oqulyq-Lens.pdf))
+**Команда:** Rubick team
 
 ## Возможности
 

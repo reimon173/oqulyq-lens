@@ -13,9 +13,9 @@
 <style>
 html,body{margin:0;height:100%;background:#0A1F18;overflow:hidden;font-family:'IBM Plex Sans',Arial,sans-serif}
 #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center}
-section{position:absolute;inset:0;width:1920px;height:1080px;box-sizing:border-box;overflow:hidden;display:none}
-section.on{display:flex}
-section[style*="display:grid"].on{display:grid}
+section{position:absolute;inset:0;width:1920px;height:1080px;box-sizing:border-box;overflow:hidden}
+section:not(.on){display:none !important}
+
 section *{box-sizing:border-box}
 h1,h2,h3,p,ul,ol,table{margin:0}
 h1{font-size:96px;line-height:1.1} h2{font-size:64px;line-height:1.15} h3{font-size:44px;line-height:1.2} p{font-size:32px;line-height:1.4}
@@ -47,9 +47,9 @@ body.show-notes #notes{display:block}
 </div>
 <div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid #2A5646;padding:28px 0px 0px">
 <p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#B6CBBF">6 предметов · 7-11 классы · 20 регионов · қазақша, русский, English</p>
-<p style="font-size:24px;color:#B6CBBF">[Название команды]</p>
+<p style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700;color:#EAF3EC">Rubick team</p>
 </div>
-<aside class="notes">Здравствуйте. Мы команда [название]. Наш проект Oqulyq Lens отвечает на кейс Data-Driven Curriculum: методист выбирает класс и предмет и получает решения об учебниках и часах на основе результатов учеников. Дальше покажу проблему, живое демо на химии 11 класса и план пилота.</aside>
+<aside class="notes">Здравствуйте. Мы команда Rubick team. Наш проект Oqulyq Lens отвечает на кейс Data-Driven Curriculum: методист выбирает класс и предмет и получает решения об учебниках и часах на основе результатов учеников. Дальше покажу проблему, живое демо на химии 11 класса и план пилота.</aside>
 </section>
 <section id="problem" data-transition="fade" style="background:#F4F7F3;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
 <div style="display:flex;flex-direction:column;gap:20px">
@@ -313,16 +313,19 @@ body.show-notes #notes{display:block}
 </section>
 <section id="close" data-transition="fade" style="background:#0E3B2E;color:#EAF3EC;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
 <p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#A4DDB0">Спасибо</p>
-<div style="display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:32px">
 <h2 style="font-family:Montserrat, Arial, sans-serif;font-size:96px;font-weight:700;line-height:1.08;letter-spacing:-1px">Попробуйте сами</h2>
 <p style="font-size:36px;line-height:1.35;color:#B6CBBF;width:1400px">Выберите класс и предмет, и через секунду увидите сложные темы, сравнение учебников и план часов.</p>
-<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:32px;background:#1D8553;color:#F3FAF5;padding:20px 28px;border-radius:4px;width:1120px"><a href="https://claude.ai/artifact/SEVe11KsB4ASAt4DrP4HRb">claude.ai/artifact/SEVe11KsB4ASAt4DrP4HRb</a></p>
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:32px;background:#1D8553;color:#F3FAF5;padding:20px 28px;border-radius:4px;width:980px"><a href="https://reimon173.github.io/oqulyq-lens/">reimon173.github.io/oqulyq-lens</a></p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;color:#B6CBBF">Код: <a href="https://github.com/reimon173/oqulyq-lens">github.com/reimon173/oqulyq-lens</a></p>
+</div>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid #2A5646;padding:28px 0px 0px">
-<p style="font-size:28px">[Название команды]</p>
-<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#B6CBBF">[Telegram или e-mail для связи]</p>
+<p style="font-family:Montserrat, Arial, sans-serif;font-size:32px;font-weight:700">Rubick team</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#B6CBBF">EdTech Hackathon by Zhambyl Hub · 2026</p>
 </div>
-<aside class="notes">Спасибо за внимание. Ссылка на рабочий MVP на экране, его можно открыть с телефона прямо сейчас. Готовы ответить на вопросы.</aside>
+<aside class="notes">Спасибо за внимание. Ссылка на рабочий MVP на экране, его можно открыть с телефона прямо сейчас. Код открыт на GitHub. Готовы ответить на вопросы.</aside>
 </section>
 </div>
 <div id="notes"></div>
@@ -330,6 +333,7 @@ body.show-notes #notes{display:block}
 <script>
 (function(){
   var s=[].slice.call(document.querySelectorAll('#stage > section')), i=0;
+  if(false){ s.forEach(function(x){ x.classList.add('on'); }); return; }
   var m=location.hash.match(/slide-(\d+)/); if(m) i=Math.min(s.length-1,Math.max(0,+m[1]-1));
   var stage=document.getElementById('stage'), hud=document.getElementById('hud'), notes=document.getElementById('notes');
   function fit(){ var k=Math.min(innerWidth/1920, innerHeight/1080); stage.style.transform='translate(-50%,-50%) scale('+k+')'; }
