@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oqulyq Lens Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@1,7..72,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+html,body{margin:0;height:100%;background:#0A1F18;overflow:hidden;font-family:'IBM Plex Sans',Arial,sans-serif}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center}
+section{position:absolute;inset:0;width:1920px;height:1080px;box-sizing:border-box;overflow:hidden;display:none}
+section.on{display:flex}
+section[style*="display:grid"].on{display:grid}
+section *{box-sizing:border-box}
+h1,h2,h3,p,ul,ol,table{margin:0}
+h1{font-size:96px;line-height:1.1} h2{font-size:64px;line-height:1.15} h3{font-size:44px;line-height:1.2} p{font-size:32px;line-height:1.4}
+table{border-collapse:collapse} th,td{padding:0.35em 0.6em;border-bottom:1px solid rgba(17,34,27,.18);text-align:left;vertical-align:top}
+th{border-bottom:2px solid currentColor}
+a{color:inherit}
+hr{border:0;margin:0}
+.arrow{align-self:center;font-size:44px;width:48px;text-align:center}
+.notes{display:none}
+#hud{position:fixed;right:16px;bottom:12px;font:13px 'IBM Plex Mono',monospace;color:#B6CBBF;user-select:none}
+#notes{position:fixed;left:0;right:0;bottom:0;max-height:30vh;overflow:auto;background:#FBFCFA;color:#11221B;font:16px/1.5 'IBM Plex Sans',Arial,sans-serif;padding:14px 18px;border-top:2px solid #176B45;display:none}
+body.show-notes #notes{display:block}
+</style>
+</head>
+<body>
+<div id="stage">
+<section id="cover" data-transition="fade" style="background:#0E3B2E;color:#EAF3EC;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div style="display:flex;align-items:center;gap:20px">
+<p style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700;background:#1D8553;color:#F3FAF5;padding:14px 18px;border-radius:4px">OL</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#A4DDB0">Кейс Data-Driven Curriculum</p>
+</div>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#B6CBBF">13 ноября 2026</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:36px">
+<h1 style="font-family:Montserrat, Arial, sans-serif;font-size:120px;font-weight:700;line-height:1.05;letter-spacing:-2px">Oqulyq Lens</h1>
+<p style="font-size:44px;line-height:1.3;width:1400px">Учебники и часы, выбранные <i><span style="color:#A4DDB0">по результатам учеников</span></i></p>
+<p style="font-size:30px;line-height:1.4;color:#B6CBBF;width:1400px">Сложные темы, сравнение учебников и план учебных часов для любого класса и предмета.</p>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid #2A5646;padding:28px 0px 0px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#B6CBBF">6 предметов · 7-11 классы · 20 регионов · қазақша, русский, English</p>
+<p style="font-size:24px;color:#B6CBBF">[Название команды]</p>
+</div>
+<aside class="notes">Здравствуйте. Мы команда [название]. Наш проект Oqulyq Lens отвечает на кейс Data-Driven Curriculum: методист выбирает класс и предмет и получает решения об учебниках и часах на основе результатов учеников. Дальше покажу проблему, живое демо на химии 11 класса и план пилота.</aside>
+</section>
+<section id="problem" data-transition="fade" style="background:#F4F7F3;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#AE382C">Проблема</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Решения об учебниках и часах сейчас принимаются без данных по отдельным темам</h2>
+</div>
+<table style="font-family:'IBM Plex Sans', Arial, sans-serif;font-size:30px;color:#11221B;width:1664px">
+<tr><th style="width:50%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Что есть у методиста</th><th style="width:50%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#AE382C;text-align:left">Чего не хватает</th></tr>
+<tr><td>Средний балл школы за тест</td><td>Результат по каждой теме программы</td></tr>
+<tr><td>Список учебников, допущенных к использованию</td><td>Сравнение учебников на одних и тех же темах</td></tr>
+<tr><td>Типовой план распределения часов</td><td>Связь между числом часов и усвоением темы</td></tr>
+</table>
+<p style="font-size:30px;line-height:1.4;color:#4A5C54;width:1400px">В итоге учебник выбирают по привычке, а трудные темы годами получают столько же часов, сколько лёгкие.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">02</p>
+<aside class="notes">У методиста обычно есть средний балл школы, список допущенных учебников и типовой план часов. Но нет ответа на главный вопрос: где именно ученики теряют баллы и почему. Без разбивки по темам нельзя честно сравнить учебники и нельзя обосновать перенос часов.</aside>
+</section>
+<section id="questions" data-transition="fade" style="background:#E4EEE6;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:52px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Пользователь</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Четыре вопроса методиста и раздел, который на них отвечает</h2>
+</div>
+<table style="font-family:'IBM Plex Sans', Arial, sans-serif;font-size:28px;color:#11221B;width:1664px">
+<tr><th style="width:38%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Вопрос</th><th style="width:16%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Раздел</th><th style="width:46%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Как отвечаем</th></tr>
+<tr><td>Какие темы ученики не усваивают?</td><td>Темы</td><td>Средний балл по теме с весом по числу учеников, пороги 55% и 70%</td></tr>
+<tr><td>Какой учебник лучше подаёт тему?</td><td>Учебники</td><td>Сравнение внутри каждой темы и t-тест Уэлча</td></tr>
+<tr><td>Куда добавить часы и откуда их взять?</td><td>Часы</td><td>Связь «часы и балл» по школам, перенос внутри годовой нагрузки</td></tr>
+<tr><td>Где по стране проседает тема?</td><td>Регионы</td><td>Сравнение регионов со средним по стране и слабая тема каждого</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">03</p>
+<aside class="notes">Наш пользователь: методист районного, областного или республиканского уровня. У него четыре практических вопроса. Каждому соответствует свой раздел платформы, и в каждом разделе виден метод расчёта.</aside>
+</section>
+<section id="flow" data-section="Как работает Oqulyq Lens и что показывает демо по химии 11 класса" data-transition="fade" style="background:#F4F7F3;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:60px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Решение</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Выбор класса и предмета превращается в план на год</h2>
+</div>
+<div style="display:flex;align-items:stretch;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:32px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#176B45">1</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:36px;font-weight:700">Выбор</h3>
+<p style="font-size:26px;line-height:1.35;color:#4A5C54">Класс, предмет и регион или свой файл CSV</p>
+</div>
+<span class="arrow">→</span>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:32px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#176B45">2</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:36px;font-weight:700">Темы</h3>
+<p style="font-size:26px;line-height:1.35;color:#4A5C54">Усвоение каждой темы и разброс между школами</p>
+</div>
+<span class="arrow">→</span>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:32px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#176B45">3</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:36px;font-weight:700">Учебники</h3>
+<p style="font-size:26px;line-height:1.35;color:#4A5C54">Кто сильнее на каждой теме и значима ли разница</p>
+</div>
+<span class="arrow">→</span>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:32px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#176B45">4</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:36px;font-weight:700">Часы</h3>
+<p style="font-size:26px;line-height:1.35;color:#4A5C54">Перенос часов к трудным темам с прогнозом</p>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;color:#4A5C54;width:1500px">Раздел «Регионы» показывает, где по стране проседают те же темы. Расчёт идёт в браузере, файл не покидает компьютер методиста.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">04</p>
+<aside class="notes">Методист выбирает класс, предмет и при желании регион. Платформа сразу считает усвоение тем, сравнивает учебники и предлагает перенос часов. Вместо модельных данных можно загрузить свой CSV из любой системы тестирования или из Excel. Всё считается в браузере, сервер не нужен.</aside>
+</section>
+<section id="coverage" data-transition="fade" style="background:#E4EEE6;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:52px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Охват</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Один инструмент на 6 предметов и 5 классов</h2>
+</div>
+<div style="display:flex;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px;font-weight:500;color:#176B45">x²</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700">Алгебра</h3>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px">78,6%</p>
+<p style="font-size:24px;color:#1F7A4D">Норма</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px;font-weight:500;color:#176B45">△</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700">Геометрия</h3>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px">61,7%</p>
+<p style="font-size:24px;color:#946210">Зона риска</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px;font-weight:500;color:#176B45">F=ma</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700">Физика</h3>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px">62,4%</p>
+<p style="font-size:24px;color:#946210">Зона риска</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBFCFA;border:2px solid #1D8553;border-radius:4px;padding:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px;font-weight:500;color:#176B45">H₂O</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700">Химия</h3>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px">65,5%</p>
+<p style="font-size:24px;color:#946210">Зона риска</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px;font-weight:500;color:#176B45">DNA</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700">Биология</h3>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px">70,4%</p>
+<p style="font-size:24px;color:#1F7A4D">Норма</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FBFCFA;border:1px solid #D2DCD4;border-radius:4px;padding:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px;font-weight:500;color:#176B45">{ }</p>
+<h3 style="font-family:Montserrat, Arial, sans-serif;font-size:28px;font-weight:700">Информатика</h3>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:36px">70,0%</p>
+<p style="font-size:24px;color:#1F7A4D">Норма</p>
+</div>
+</div>
+<p style="font-size:30px;line-height:1.4;width:1500px">У каждой пары «класс + предмет» свои темы программы: 30 наборов данных и 180 тем на трёх языках.</p>
+<p style="font-size:24px;color:#4A5C54">Среднее усвоение по стране, 11 класс. Модельные данные, не официальная статистика.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">05</p>
+<aside class="notes">Платформа работает для алгебры, геометрии, физики, химии, биологии и информатики с 7 по 11 класс. На главной сразу видно, какой предмет в выбранном классе в зоне риска. Цифры здесь модельные: реальные результаты загружаются файлом. Дальше разберём химию 11 класса.</aside>
+</section>
+<section id="topics" data-transition="fade" style="background:#F4F7F3;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:grid;grid-template-columns:560px 1fr;gap:64px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Демо: химия, 11 класс</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:112px;font-weight:500;line-height:1;color:#946210">58,2%</p>
+<p style="font-size:30px;line-height:1.4">усвоения по теме «Химия и окружающая среда». Ниже нормы 70%: пять тем из шести.</p>
+<p style="font-size:24px;line-height:1.4;color:#4A5C54">Вся страна: 20 регионов, 100 школ, 8 006 учеников. Модельные данные.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:center;gap:16px"><p style="width:500px;font-size:26px">Электрохимия</p><div style="width:380px;height:16px;background:#D2DCD4;display:flex"><div style="width:252px;height:16px;background:#946210"></div></div><p style="width:110px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:26px;text-align:right">66,3%</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:500px;font-size:26px">Химия d-элементов</p><div style="width:380px;height:16px;background:#D2DCD4;display:flex"><div style="width:224px;height:16px;background:#946210"></div></div><p style="width:110px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:26px;text-align:right">59,0%</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:500px;font-size:26px">Азотсодержащие органические соединения</p><div style="width:380px;height:16px;background:#D2DCD4;display:flex"><div style="width:254px;height:16px;background:#946210"></div></div><p style="width:110px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:26px;text-align:right">66,8%</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:500px;font-size:26px">Полимеры</p><div style="width:380px;height:16px;background:#D2DCD4;display:flex"><div style="width:247px;height:16px;background:#946210"></div></div><p style="width:110px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:26px;text-align:right">65,0%</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:500px;font-size:26px">Комплексные соединения</p><div style="width:380px;height:16px;background:#D2DCD4;display:flex"><div style="width:294px;height:16px;background:#1D8553"></div></div><p style="width:110px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:26px;text-align:right">77,4%</p></div>
+<div style="display:flex;align-items:center;gap:16px"><p style="width:500px;font-size:26px;font-weight:600">Химия и окружающая среда</p><div style="width:380px;height:16px;background:#D2DCD4;display:flex"><div style="width:221px;height:16px;background:#946210"></div></div><p style="width:110px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:26px;text-align:right;color:#946210">58,2%</p></div>
+<p style="font-size:24px;color:#4A5C54">Охра: 55-70%, зона риска. Зелёный: от 70%, норма.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">06</p>
+<aside class="notes">Химия 11 класса по всей стране, модельные данные. Темы идут в порядке программы. Критичных тем ниже 55% нет, но пять из шести не дотягивают до нормы. Слабее всего «Химия и окружающая среда» и химия d-элементов. В MVP по клику на тему видно результат каждой школы и график связи с часами. Здесь стоит переключиться на живое демо.</aside>
+</section>
+<section id="textbooks" data-transition="fade" style="background:#E4EEE6;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:44px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Демо: учебники</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Учебники равны в целом, но у каждого своя сильная тема</h2>
+</div>
+<table style="font-family:'IBM Plex Sans', Arial, sans-serif;font-size:28px;color:#11221B;width:1664px">
+<tr><th style="width:15%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Учебник</th><th style="width:13%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:right">Индекс, п.</th><th style="width:36%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Сильная тема</th><th style="width:36%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Слабая тема</th></tr>
+<tr><td>Учебник Б</td><td style="text-align:right">+0,1</td><td>Азотсодержащие соединения, +2,0</td><td>Химия и окружающая среда, −1,6</td></tr>
+<tr><td>Учебник А</td><td style="text-align:right">+0,1</td><td>Электрохимия, +2,5</td><td>Азотсодержащие соединения, −2,6</td></tr>
+<tr><td>Учебник В</td><td style="text-align:right">−0,2</td><td>Химия и окружающая среда, +1,8</td><td>Комплексные соединения, −1,9</td></tr>
+</table>
+<p style="font-size:30px;line-height:1.4;width:1560px">Значимая разница найдена в 4 темах из 6. По электрохимии учебник А опережает остальные на 3,4 п. (p = 0,004).</p>
+<p style="font-size:24px;color:#4A5C54">Сравнение внутри каждой темы, t-тест Уэлча. Индекс: среднее отклонение от среднего по теме. Модельные данные.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">07</p>
+<aside class="notes">Простое сравнение средних баллов нечестно: если школы с одним учебником сильнее в целом, разница не говорит о самом учебнике. Мы сравниваем учебники внутри каждой темы. В общем итоге три учебника почти равны, но в четырёх темах разница статистически значима. Значит, методист может рекомендовать материалы сильного учебника именно по этой теме.</aside>
+</section>
+<section id="hours" data-transition="fade" style="background:#F4F7F3;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;justify-content:space-between;align-items:end;gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Демо: часы</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1000px">6 часов переходят к трудным темам внутри тех же 102</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:24px;color:#4A5C54;text-align:right">Прогноз среднего усвоения</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:60px;font-weight:500;text-align:right;white-space:nowrap">65,5% → <span style="color:#176B45">66,9%</span></p>
+</div>
+</div>
+<table style="font-family:'IBM Plex Sans', Arial, sans-serif;font-size:28px;color:#11221B;width:1664px">
+<tr><th style="width:32%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Тема</th><th style="width:10%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:right">План</th><th style="width:13%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:right">Новый</th><th style="width:45%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Обоснование</th></tr>
+<tr><td>Полимеры</td><td style="text-align:right">13</td><td style="text-align:right;color:#1F7A4D">16 (+3)</td><td>Усвоение 65,0%, около +2,1 п. за каждый час</td></tr>
+<tr><td>Химия и окружающая среда</td><td style="text-align:right">17</td><td style="text-align:right;color:#1F7A4D">20 (+3)</td><td>Усвоение 58,2%, около +1,3 п. за час</td></tr>
+<tr><td>Комплексные соединения</td><td style="text-align:right">20</td><td style="text-align:right;color:#AE382C">14 (−6)</td><td>Усвоение 77,4%, выше нормы, потеря около 0,3 п. за час</td></tr>
+</table>
+<p style="font-size:24px;color:#4A5C54;width:1500px">Остальные три темы без изменений. Часы забираются только у тем с усвоением от 70%, и ни одна тема не опускается ниже нормы. Модельные данные.</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">08</p>
+<aside class="notes">Для каждой темы мы смотрим, насколько выше результат в школах, где на неё дают больше часов. По комплексным соединениям усвоение уже 77% и почти не зависит от часов, поэтому шесть часов можно отдать полимерам и теме «Химия и окружающая среда». Общий объём остаётся 102 часа. Методист сам задаёт ползунком, сколько часов разрешено перенести, и сразу видит прогноз.</aside>
+</section>
+<section id="regions" data-transition="fade" style="background:#E4EEE6;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:grid;grid-template-columns:620px 1fr;gap:72px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Демо: регионы</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:112px;font-weight:500;line-height:1">10,6 п.</p>
+<p style="font-size:30px;line-height:1.4">разрыв между сильнейшим и слабейшим регионом по химии 11 класса.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:0px">
+<div style="display:flex;flex-direction:column;gap:12px;padding:32px 0px;border-top:2px solid #11221B">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:48px;font-weight:500;color:#176B45">17 из 20</p>
+<p style="font-size:30px;line-height:1.4">регионов имеют одну и ту же самую слабую тему: «Химия и окружающая среда».</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;padding:32px 0px;border-top:1px solid #D2DCD4">
+<p style="font-size:30px;line-height:1.4">Значит, тему стоит усиливать в самой программе по всей стране. Сильные регионы можно привлечь к обмену методиками.</p>
+</div>
+<p style="font-size:24px;color:#4A5C54;padding:20px 0px 0px;border-top:1px solid #D2DCD4">Регион выбирается фильтром, и все разделы пересчитываются для него. Модельные данные, не официальная статистика.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">09</p>
+<aside class="notes">Раздел «Регионы» сравнивает 20 регионов со средним по стране и показывает слабую тему каждого. Названия регионов на слайде я не привожу: данные модельные, и рейтинг не должен восприниматься как реальный. Главный вывод: когда одна тема слабая почти везде, проблема в программе или в учебных материалах, и решать её нужно на уровне страны.</aside>
+</section>
+<section id="statement" data-section="Почему результатам можно доверять и как устроен прототип" data-transition="fade" style="background:#176B45;color:#EAF3EC;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:40px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#C9EBD0">Главный принцип</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:68px;font-weight:700;line-height:1.18;width:1560px">Каждая рекомендация показывает цифры, на которых она построена: усвоение, прирост за час и p-значение.</h2>
+<p style="font-size:30px;line-height:1.4;color:#D5EBDB;width:1300px">Методист может проверить любой вывод и защитить его на методическом совете.</p>
+<aside class="notes">Это ключевое отличие от простой аналитики. Мы не просто говорим «добавьте часы». Рядом с каждой рекомендацией видно, на чём она основана, и если данных мало, платформа так и пишет: «не доказано». Это и есть переход от субъективных решений к измеримым результатам, о котором говорит кейс.</aside>
+</section>
+<section id="trust" data-transition="fade" style="background:#F4F7F3;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:52px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Данные и доступ</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Данные учеников остаются у школы</h2>
+</div>
+<table style="font-family:'IBM Plex Sans', Arial, sans-serif;font-size:28px;color:#11221B;width:1664px">
+<tr><th style="width:30%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Вопрос</th><th style="width:70%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Как устроено</th></tr>
+<tr><td>Обработка</td><td>В браузере методиста, без отправки на сервер</td></tr>
+<tr><td>Персональные данные</td><td>Не нужны: достаточно средних баллов по школе</td></tr>
+<tr><td>Что хранится</td><td>Только язык интерфейса и выбранные класс и предмет</td></tr>
+<tr><td>Документы</td><td>Пользовательское соглашение и политика конфиденциальности</td></tr>
+<tr><td>Языки</td><td>Қазақша, русский, English во всём интерфейсе</td></tr>
+</table>
+<p style="font-size:24px;color:#4A5C54;width:1500px">Подход следует принципу минимизации из Закона РК «О персональных данных и их защите».</p>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">11</p>
+<aside class="notes">Мы сознательно не просим ФИО или ИИН учеников. Для решений методиста хватает средних баллов по школе и теме. Файл обрабатывается прямо в браузере, поэтому платформу можно внедрять без долгого согласования серверов и доступа к персональным данным. Интерфейс полностью на трёх языках.</aside>
+</section>
+<section id="tech" data-transition="fade" style="background:#E4EEE6;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Технология</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Что внутри прототипа</h2>
+</div>
+<table style="font-family:'IBM Plex Sans', Arial, sans-serif;font-size:28px;color:#11221B;width:1664px">
+<tr><th style="width:28%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Компонент</th><th style="width:72%;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:500;color:#4A5C54;text-align:left">Решение</th></tr>
+<tr><td>Интерфейс</td><td>HTML, CSS и JavaScript без фреймворков, работает по ссылке и на телефоне</td></tr>
+<tr><td>Охват</td><td>6 предметов, 7-11 классы, 20 регионов, 180 тем на трёх языках</td></tr>
+<tr><td>Статистика</td><td>Взвешенное среднее, линейная регрессия, t-тест Уэлча, без внешних библиотек</td></tr>
+<tr><td>Загрузка данных</td><td>CSV через «,» или «;», названия столбцов на трёх языках</td></tr>
+<tr><td>План часов</td><td>Перенос по одному часу, каждая тема в пределах 70-150% плана</td></tr>
+<tr><td>Проверка файла</td><td>Ошибки показываются с номером строки и столбца</td></tr>
+</table>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">12</p>
+<aside class="notes">Прототип сделан одной веб-страницей без сервера, поэтому его можно открыть по ссылке на любом устройстве. Все статистические методы реализованы прямо в коде. Каталог тем охватывает шесть предметов с 7 по 11 класс на трёх языках. Файл можно выгрузить из Excel с любым разделителем, а если в нём ошибка, платформа укажет строку.</aside>
+</section>
+<section id="roadmap" data-section="План пилота и ссылка на MVP" data-transition="fade" style="background:#F4F7F3;color:#11221B;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:56px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#176B45">Дальше</p>
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:60px;font-weight:700;line-height:1.15;width:1560px">Пилот на реальных результатах вместо модельных</h2>
+</div>
+<div style="display:flex;flex-direction:column">
+<div style="display:grid;grid-template-columns:420px 1fr;gap:48px;padding:28px 0px;border-top:2px solid #11221B">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;color:#176B45">Декабрь 2026</p>
+<p style="font-size:30px;line-height:1.4">Пилот в 3-5 школах Жамбылской области на результатах СОР и СОЧ</p>
+</div>
+<div style="display:grid;grid-template-columns:420px 1fr;gap:48px;padding:28px 0px;border-top:1px solid #D2DCD4">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;color:#176B45">Январь-март 2027</p>
+<p style="font-size:30px;line-height:1.4">Сверка прогноза с фактическими результатами третьей четверти</p>
+</div>
+<div style="display:grid;grid-template-columns:420px 1fr;gap:48px;padding:28px 0px;border-top:1px solid #D2DCD4;border-bottom:1px solid #D2DCD4">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;color:#176B45">2027-2028 учебный год</p>
+<p style="font-size:30px;line-height:1.4">Подключение областных данных, динамика по годам, отчёт для методического совета</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">Oqulyq Lens · Data-Driven Curriculum</p>
+<p style="position:absolute;right:128px;bottom:64px;width:200px;text-align:right;font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#4A5C54">13</p>
+<aside class="notes">Следующий шаг: заменить модельные данные реальными результатами суммативного оценивания в нескольких школах. Самое важное в пилоте: проверить, сбывается ли прогноз. Если перенос часов действительно поднимает усвоение, можно подключать областные данные и масштабировать.</aside>
+</section>
+<section id="close" data-transition="fade" style="background:#0E3B2E;color:#EAF3EC;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:space-between">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#A4DDB0">Спасибо</p>
+<div style="display:flex;flex-direction:column;gap:36px">
+<h2 style="font-family:Montserrat, Arial, sans-serif;font-size:96px;font-weight:700;line-height:1.08;letter-spacing:-1px">Попробуйте сами</h2>
+<p style="font-size:36px;line-height:1.35;color:#B6CBBF;width:1400px">Выберите класс и предмет, и через секунду увидите сложные темы, сравнение учебников и план часов.</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:32px;background:#1D8553;color:#F3FAF5;padding:20px 28px;border-radius:4px;width:1120px"><a href="https://claude.ai/artifact/SEVe11KsB4ASAt4DrP4HRb">claude.ai/artifact/SEVe11KsB4ASAt4DrP4HRb</a></p>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid #2A5646;padding:28px 0px 0px">
+<p style="font-size:28px">[Название команды]</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;color:#B6CBBF">[Telegram или e-mail для связи]</p>
+</div>
+<aside class="notes">Спасибо за внимание. Ссылка на рабочий MVP на экране, его можно открыть с телефона прямо сейчас. Готовы ответить на вопросы.</aside>
+</section>
+</div>
+<div id="notes"></div>
+<div id="hud"></div>
+<script>
+(function(){
+  var s=[].slice.call(document.querySelectorAll('#stage > section')), i=0;
+  var m=location.hash.match(/slide-(\d+)/); if(m) i=Math.min(s.length-1,Math.max(0,+m[1]-1));
+  var stage=document.getElementById('stage'), hud=document.getElementById('hud'), notes=document.getElementById('notes');
+  function fit(){ var k=Math.min(innerWidth/1920, innerHeight/1080); stage.style.transform='translate(-50%,-50%) scale('+k+')'; }
+  function show(){ s.forEach(function(x,j){ x.classList.toggle('on', j===i); }); hud.textContent=(i+1)+' / '+s.length+'   ← → листать · N заметки · F полный экран';
+    var a=s[i].querySelector('.notes'); notes.textContent=a?a.textContent:''; history.replaceState(null,'','#slide-'+(i+1)); }
+  function go(d){ i=Math.min(s.length-1,Math.max(0,i+d)); show(); }
+  addEventListener('keydown',function(e){
+    if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>=0){ e.preventDefault(); go(1); }
+    else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>=0){ e.preventDefault(); go(-1); }
+    else if(e.key==='Home'){ i=0; show(); } else if(e.key==='End'){ i=s.length-1; show(); }
+    else if(e.key==='n'||e.key==='N'||e.key==='т'||e.key==='Т'){ document.body.classList.toggle('show-notes'); }
+    else if(e.key==='f'||e.key==='F'||e.key==='а'||e.key==='А'){ if(document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(function(){}); }
+  });
+  document.addEventListener('click',function(e){ if(e.target.closest('a')||e.target.closest('#notes')) return; go(e.clientX < innerWidth/3 ? -1 : 1); });
+  addEventListener('resize',fit); fit(); show();
+})();
+</script>
+</body>
+</html>
